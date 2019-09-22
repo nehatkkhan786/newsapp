@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+	<title>NewsApp | Article Create</title>
+{% endblock title %}
+
+{% block content %}
+	<h1>Create a new Article</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{form|crispy}}
+		<button type="submit" class="btn btn-success">Create</button>
+	</form>
+{% endblock content %}

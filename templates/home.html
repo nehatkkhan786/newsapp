@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>Homepage</title>
+{% endblock title %}
+
+{% block content %}
+	<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{% if user.is_authenticated %} Welcome {{user.username}} {% endif %}</h1>
+    <p class="lead">A Newspaper website build with Django.</p>
+    <a class="btn btn-info" href="{% url 'article_list' %}" role="button">View All Aricles</a>
+  </div>
+</div>
+
+{% endblock content %}

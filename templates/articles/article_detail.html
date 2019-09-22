@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>NewsApp | Article Detail</title>
+{% endblock title %}
+
+{% block content %}
+
+	<div class="blog-post">
+        <h2 class="blog-post-title">{{object.title}}</h2>
+        <p class="blog-post-meta">{{object.date}} by {{object.author}} </p>
+        <p>{{object.body}}</p>
+        <p>
+        	<a class="btn btn-primary" href="{% url 'article_edit' article.id %}" role="button">Edit</a>
+
+        	<a class="btn btn-danger" href="{% url 'article_delete' article.id %}" role="button">Delete</a>
+
+        	<a class="btn btn-secondary" href="{% url 'article_list'%}" role="button">Back To Articles</a>
+        </p>
+      </div>
+
+{% endblock content %}

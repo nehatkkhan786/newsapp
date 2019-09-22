@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light badge-light">
+  <a class="navbar-brand" href="{% url 'home' %}">NewsApp</a>
+
+  <ul class="nav justify-content-end">
+    {% if user.is_authenticated %}
+  
+  <div class="dropdown mr-auto ml-auto" >
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{user.username}}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+    <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+    <a class="dropdown-item" href="{% url 'article_create' %}">Create New Article</a>
+  </div>
+</div>
+
+  {% else %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+  </li>
+  {% endif %}
+  
+</ul>
+</nav>
